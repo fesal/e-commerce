@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Create Product</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="OneTech shop project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css"
+	rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="styles/contact_styles.css">
+<link rel="stylesheet" type="text/css"
+	href="styles/contact_responsive.css">
+<link rel='stylesheet prefetch'
+	href='https://rawgit.com/adrotec/knockout-file-bindings/master/knockout-file-bindings.css'>
+</head>
+
+<body>
+
+	<div class="super_container">
+
+		<!-- Header -->
+		<header class="header">
+			<th:block th:include="include/header/main_nav"></th:block>
+			<th:block th:include="include/header/header_main"></th:block>
+			<th:block th:include="include/header/page_menu"></th:block>
+		</header>
+
+		<!-- Contact Info -->
+		<div class="contact_info">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<h3 style="margin-bottom: 10px; color: #babcbc;">Add New Product</h3>
+						<form id="contact_form" method="POST"
+							th:action="@{/create_new_product}" enctype="multipart/form-data">
+							<div
+								class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
+								<input class="contact_form_name input_field" placeholder="Name"
+									name="name" required="required" data-error="Name is required."
+									type="text">
+								<div class="header_main">
+									<input id="myCatregoy" type="hidden" name="category" value="All"/>
+									<div class="custom_dropdown_list">
+										<span class="custom_dropdown_placeholder clc">All
+											Categories</span> <i class="fas fa-chevron-down"></i> 
+										<ul class="custom_list clc" id="ddlViewBy">
+											<li th:each="categorie : ${categories}"
+												onclick="getId(this);"><a class="clc" href="#">[[${categorie.name}]]</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
+								<input class="contact_form_name input_field" placeholder="Price" name="price" required="required" data-error="Price is required"
+									type="text">
+								<input class="contact_form_name input_field" placeholder="Shipping" name="shipping" required="required"
+									data-error="Shipping is required" type="text">
+								<input class="contact_form_name input_field" placeholder="Tax"
+									name="tax" required="required" data-error="Tax is required." type="text">
+							</div>
+							<div
+								class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
+								<textarea id="contact_form_description"
+									class="text_field contact_form_message" name="description"
+									rows="4" placeholder="Description" required="required"
+									data-error="Please, write us a description."></textarea>
+							</div>
+
+							<div>
+								<div class="well" data-bind="fileDrag: fileData">
+									<div class="form-group row">
+										<div class="col-md-6">
+											<img style="height: 125px;" class="img-rounded  thumb"
+												data-bind="attr: { src: fileData().dataURL }, visible: fileData().dataURL">
+											<div data-bind="ifnot: fileData().dataURL">
+												<label class="drag-label">Drag file here</label>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<input type="file" name="file"
+												data-bind="fileInput: fileData, customFileInput: {
+							              buttonClass: 'btn btn-success',
+							              fileNameClass: 'disabled form-control',
+							              onClear: onClear,
+							            }"
+												accept="image/*">
+										</div>
+									</div>
+								</div>
+
+								<div class="well" data-bind="fileDrag: fileData1">
+									<div class="form-group row">
+										<div class="col-md-6">
+											<img style="height: 125px;" class="img-rounded  thumb"
+												data-bind="attr: { src: fileData1().dataURL }, visible: fileData1().dataURL">
+											<div data-bind="ifnot: fileData1().dataURL">
+												<label class="drag-label">Drag file here</label>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<input type="file" name="file"
+												data-bind="fileInput: fileData1, customFileInput: {
+							              buttonClass: 'btn btn-success',
+							              fileNameClass: 'disabled form-control',
+							              onClear: onClear,
+							            }"
+												accept="image/*">
+										</div>
+									</div>
+								</div>
+
+								<div class="well" data-bind="fileDrag: fileData2">
+									<div class="form-group row">
+										<div class="col-md-6">
+											<img style="height: 125px;" class="img-rounded  thumb"
+												data-bind="attr: { src: fileData2().dataURL }, visible: fileData2().dataURL">
+											<div data-bind="ifnot: fileData2().dataURL">
+												<label class="drag-label">Drag file here</label>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<input type="file" name="file"
+												data-bind="fileInput: fileData2, customFileInput: {
+							              buttonClass: 'btn btn-success',
+							              fileNameClass: 'disabled form-control',
+							              onClear: onClear,
+							            }"
+												accept="image/*">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
+								<button type="submit" class="button contact_submit_button">Add
+									Product</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="styles/bootstrap4/popper.js"></script>
+	<script src="styles/bootstrap4/bootstrap.min.js"></script>
+	<script src="plugins/greensock/TweenMax.min.js"></script>
+	<script src="plugins/greensock/TimelineMax.min.js"></script>
+	<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+	<script src="plugins/greensock/animation.gsap.min.js"></script>
+	<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+	<script src="plugins/easing/easing.js"></script>
+	<script src="js/contact_custom.js"></script>
+	<script
+		src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js'></script>
+	<script
+		src='https://rawgit.com/adrotec/knockout-file-bindings/master/knockout-file-bindings.js'></script>
+	<script>
+	function getId(e)
+	{
+		console.log($(e).text());
+		//$('#kategoria').val($(e).text());
+		document.getElementById("myCatregoy").value = $(e).text();
+	}
+</script>
+	<script>
+$(function(){
+	  var viewModel = {};
+	  viewModel.fileData = ko.observable({
+	    dataURL: ko.observable(),
+	    // base64String: ko.observable(),
+	  });
+	  viewModel.onClear = function(fileData){
+	    if(confirm('Are you sure?')){
+	      fileData.clear && fileData.clear();
+	    }                            
+	  };
+	  viewModel.fileData1 = ko.observable({
+	    dataURL: ko.observable(),
+	    // base64String: ko.observable(),
+	  });
+	  viewModel.onClear = function(fileData1){
+	    if(confirm('Are you sure?')){
+	      fileData1.clear && fileData1.clear();
+	    }                            
+	  };
+	  viewModel.fileData2 = ko.observable({
+	    dataURL: ko.observable(),
+	    // base64String: ko.observable(),
+	  });
+	  viewModel.onClear = function(fileData2){
+	    if(confirm('Are you sure?')){
+	      fileData2.clear && fileData2.clear();
+	    }                            
+	  };
+	  viewModel.debug = function(){
+	    window.viewModel = viewModel;
+	    console.log(ko.toJSON(viewModel));
+	    debugger; 
+	  };
+	  ko.applyBindings(viewModel);
+	});
+</script>
+	
+</body>
+
+</html>

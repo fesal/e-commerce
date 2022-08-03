@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Contact</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="OneTech shop project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css"
+	href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css"
+	rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="styles/contact_styles.css">
+<link rel="stylesheet" type="text/css"
+	href="styles/contact_responsive.css">
+</head>
+
+<body>
+
+	<div class="super_container">
+
+		<!-- Header -->
+		<header class="header">
+
+			<nav class="main_nav">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+
+
+							<div class="main_nav_content d-flex flex-row">
+								<!-- Main Nav Menu -->
+								<div class="main_nav_menu ml-auto">
+									<ul class="standard_dropdown main_nav_dropdown">
+										<li><a href="index.html">Home<i
+												class="fas fa-chevron-down"></i></a></li>
+										<li><a href="register.html">Register<i
+												class="fas fa-chevron-down"></i></a></li>
+									</ul>
+								</div>
+
+								<!-- Menu Trigger -->
+
+								<div class="menu_trigger_container ml-auto">
+									<div
+										class="menu_trigger d-flex flex-row align-items-center justify-content-end">
+										<div class="menu_burger">
+											<div class="menu_trigger_text">menu</div>
+											<div class="cat_burger menu_burger_inner">
+												<span></span><span></span><span></span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+			<div class="page_menu">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+
+							<div class="page_menu_content">
+								<ul class="page_menu_nav">
+									<li class="page_menu_item"><a href="index.html">Home<i
+											class="fa fa-angle-down"></i></a></li>
+									<li class="page_menu_item"><a href="register.html">Register<i
+											class="fa fa-angle-down"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Contact Info -->
+		<div class="contact_info">
+			<div class="container" style="max-width: 860px;">
+				<center>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="col-log-4"></div>
+							<div class="col-log-4">
+								
+								<form action="#" th:action="@{/login}" method="post">
+									<div class="contact_form_inputs">
+										<input class="contact_form_name input_field"
+											placeholder="Username" name="username" required="required"
+											data-error="Username is required." type="text">
+									</div>
+									<div class="contact_form_inputs">
+										<input class="contact_form_name input_field"
+											placeholder="Password" name="password" type="text"
+											required="required" data-error="Password is required.">
+									</div>
+									<div th:if="${logout}">You have been logged out
+										successfully</div>
+									<div th:if="${error}">Invalid username and password.</div>
+									<div class="contact_form_inputs">
+										<button type="submit" class="button contact_submit_button">Login</button>
+										<!-- or <a href="/register">register</a> -->
+									</div>
+
+								</form>
+							</div>
+							<div class="col-log-4"></div>
+						</div>
+					</div>
+				</center>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="styles/bootstrap4/popper.js"></script>
+	<script src="styles/bootstrap4/bootstrap.min.js"></script>
+	<script src="plugins/greensock/TweenMax.min.js"></script>
+	<script src="plugins/greensock/TimelineMax.min.js"></script>
+	<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+	<script src="plugins/greensock/animation.gsap.min.js"></script>
+	<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+	<script src="plugins/easing/easing.js"></script>
+	<script src="js/menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<title>Cart</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="OneTech shop project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+<link href="plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="styles/cart_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="styles/shop_styles.css">
+<link rel="stylesheet" type="text/css" href="styles/shop_responsive.css">
+<link rel="stylesheet" type="text/css" href="styles/paging.css">
+</head>
+<body>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+  <input type="hidden" name="cmd" value="_cart">
+  <input type="hidden" name="business" value="seller@designerfotos.com">
+  <input type="hidden" name="item_name" value="hat">
+  <input type="hidden" name="item_number" value="123">
+  <input type="hidden" name="amount" value="15.00">
+  <input type="hidden" name="first_name" value="John">
+  <input type="hidden" name="last_name" value="Doe">
+  <input type="hidden" name="address1" value="9 Elm Street">
+  <input type="hidden" name="address2" value="Apt 5">
+  <input type="hidden" name="city" value="Berwyn">
+  <input type="hidden" name="state" value="PA">
+  <input type="hidden" name="zip" value="19312">
+  <input type="hidden" name="night_phone_a" value="610">
+  <input type="hidden" name="night_phone_b" value="555">
+  <input type="hidden" name="night_phone_c" value="1234">
+  <input type="hidden" name="email" value="jdoe@zyzzyu.com">
+  <input type="image" name="submit"
+    src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+    alt="PayPal - The safer, easier way to pay online">
+</form>

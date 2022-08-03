@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Order</title>
+</head>
+
+<body>
+
+	<h2>Orders</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Description</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tr th:each="post : ${posts}">
+			<td th:text="${post.id}"></td>
+			<td th:text="${post.quantity}"></td>
+			<td th:text="${post.date_sold}"></td>
+			<td th:text="${post.zipcode}"></td>
+			<td th:text="${post.street}"></td>
+			<td th:text="${post.city}"></td>
+			<td th:text="${post.state}"></td>
+			<td th:text="${post.product.name}"></td>
+			<td th:text="${post.product.price}"></td>
+		</tr>
+	</table>
+</body>
+</html>

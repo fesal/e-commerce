@@ -1,0 +1,43 @@
+<div class="page_menu">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+
+				<div class="page_menu_content">
+
+					<div class="page_menu_search">
+						<form action="#" class="header_search_form clearfix"
+							th:action="@{mobile_index}" method="GET">
+							<input type="search" name="search" required="required"
+								class="page_menu_search_input"
+								placeholder="Search for products...">
+						</form>
+					</div>
+					<ul class="page_menu_nav" sec:authorize="hasAuthority('USER')">
+						<li class="page_menu_item"><a href="index.html">Home<i
+								class="fa fa-angle-down"></i></a></li>
+						<li class="page_menu_item"><a href="my_product.html">My
+								Product<i class="fa fa-angle-down"></i>
+						</a></li>
+						<li class="page_menu_item"><a href="create_product.html">Create
+								Product<i class="fa fa-angle-down"></i>
+						</a></li>
+						<li class="page_menu_item"><a href="my_profile.html">My
+								Profile<i class="fa fa-angle-down"></i>
+						</a></li>
+						<li class="page_menu_item" th:text="${#authentication.name}"><a
+							href="logout">log out</a></li>
+					</ul>
+
+					<ul class="page_menu_nav" sec:authorize="!hasAuthority('USER')">
+						<li class="page_menu_item"><a href="index.html">Home<i
+								class="fa fa-angle-down"></i></a></li>
+						<li class="page_menu_item"><a href="register.html">Register</a></li>
+						<li class="page_menu_item"><a href="login.html">Sign in</a></li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

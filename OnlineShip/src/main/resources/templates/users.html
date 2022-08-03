@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>User Managements</title>
+</head>
+
+<body>
+	<h2>Hello Wordl</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Username</th>
+				<th>Email</th>
+				<th>Paypal</th>
+				<th>Stripe</th>
+				<th>Edit</th>
+				<th>Remove</th>
+			</tr>
+		</thead>
+		<tr th:each="acca : ${accounts}">
+
+			<td th:text="${acca.id}" onclick="Save()"></td>
+			<td th:text="${acca.firstname}"></td>
+			<td th:text="${acca.lastname}"></td>
+			<td th:text="${acca.email}"></td>
+			<td th:text="${acca.username}"></td>
+			<td th:text="${acca.stripe}"></td>
+			<td th:text="${acca.paypal}"></td>
+			<td>
+				<form method="POST" th:action="@{/edit(id=${acca.id})}">
+					<button type="submit">Edit</button>
+				</form>
+			</td>
+			<td>
+				<form method="POST" th:action="@{/delete(id=${acca.id})}">
+					<button type="submit">Remove</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+
+	<form action="#" id="form_id" th:action="@{/accounts}"
+		th:object="${users}" method="post">
+		<p>
+			<label>ID:</label>
+		</p>
+		<input type="number" th:field="*{id}" />
+		<p>
+			<label>Firstname</label>
+		</p>
+		<input type="text" th:field="*{firstname}" />
+		<p>
+			<label>Email</label>
+		</p>
+		<input type="text" th:field="*{email}" />
+		<p>
+			<label>Username</label>
+		</p>
+		<input type="text" th:field="*{username}" />
+		<p>
+			<label>Stripe</label>
+		</p>
+		<input type="text" th:field="*{stripe}" />
+
+		<p class="note">*all for save and update</p>
+		<p class="note">*id for remove</p>
+		<p>
+			<input type="submit" onclick="Save()" value="Save" />
+		</p>
+		<p>
+			<input type="submit" onclick="Save()" value="Update" />
+		</p>
+		<p>
+			<input type="submit" onclick="Search()" value="Search" />
+		</p>
+	</form>
+</body>
+</html>

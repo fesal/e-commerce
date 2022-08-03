@@ -1,0 +1,50 @@
+<div class="header_main">
+	<div class="container">
+		<div class="row">
+
+			<!-- Logo -->
+			<div class="col-lg-2 col-sm-3 col-3 order-1">
+				<div class="logo_container">
+					<div class="logo">
+					
+						<a href="index.html"><img src="images/logo_me.jpg" width="200" height="64"/></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Search -->
+			<div
+				class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+				<div class="header_search">
+					<div class="header_search_content">
+						<div class="header_search_form_container">
+							<form action="#" class="header_search_form clearfix"
+								th:action="@{index.html}" method="GET">
+								<input type="search" name="search" class="header_search_input"
+									placeholder="Search for products...">
+								<div class="custom_dropdown">
+									<div class="custom_dropdown_list">
+										<span class="custom_dropdown_placeholder clc">All
+											Categories</span> <i class="fas fa-chevron-down"></i> <input
+											id="kategoria" type="hidden" name="category" value="all" />
+										<ul class="custom_list clc" id="ddlViewBy"
+											style="z-index: 10000;">
+											<li><a class="clc" href="#">All Categories</a></li>
+											<li name="category" th:each="categorie : ${categories}"
+												onclick="getId(this);"><a class="clc" href="#">[[${categorie.name}]]</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<button type="submit" class="header_search_button trans_300"
+									value="Submit">
+									<img src="images/search.png" alt="">
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
